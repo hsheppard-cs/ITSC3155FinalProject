@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="back-to-shop"><a href="./index.html">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-                <div></a><span button id="emptyCart" onclick="empty()" class="btn">Empty Cart</span></div>
+                <div></a><span button id="emptyCart" onclick="emptyCart()" class="btn">Empty Cart</span></div>
             </div>
             <div class="col-md-4 summary">
                 <div>
@@ -56,24 +56,12 @@
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col">TOTAL PRICE</div>
                     <div id="item-price" class="col text-right"></div>
-                </div> <button id="checkout" onclick="checkOut()" class="btn">CHECKOUT with free Shipping</button>
-            </div> <button id="checkout" onclick="checkOut2()" class="btn">CHECKOUT with Express Shipping</button>
-        </div> <button id="checkout" onclick="checkOut3()" class="btn">CHECKOUT with Overnight Shipping</button>
-    </div>
+                </div> <button id="checkout" onclick="checkOut()" class="btn">CHECKOUT</button>
             </div>
         </div>
     </div>
 </div>
 
-<form action = "mailto:contaxt@yourdomain.com"
-method = "POST"
-enctype = "multipart/form-data"
-name = "EmailTestForm">
-Name:<br>
-<input type = "text" size="24" name="VisitorName"><br><br>
-Message:<br> <textarea name = "VisitorComment" rows="4" cols="20">
-</textarea><br><br> <input type = "submit" value = "Submit">
-</form>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
