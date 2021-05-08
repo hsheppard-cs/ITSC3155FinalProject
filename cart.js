@@ -49,44 +49,52 @@ function getCart($email) {
     });
 }
 
-function deleteItem($id) {
-    //jQuery Ajax request
+function deleteItem(id) {
+    getCart(email);
     $.ajax({
-        url: 'http://18.220.85.60/api/Cart/' + $id , 
+        url: Url + 'Cart/'+id,
         type: 'delete',
-        dataType: 'json', 
-        //the json is defined here using javascript's dictionary syntax.
+        dataType: 'json',
+        contentType: 'text/plain'
+    })
+
+    //TODO complete implementation using the product id
+   // alert("cart.js/deleteItem() is not implemented")
+}
+
+function emptyCart(){
+    getCart(email);
+    $.ajax({
+        url: Url + 'GetCart',
+        type: 'get',
+        data: {"email":email},
+        dataType: 'json',
         contentType: 'text/plain',
         success: function (data) {
+            console.log(data);
+            $.each(data['data']['List'], function(i, itemId) {
+                let key = itemId['id']; 
+                deleteItem(key)
+            });
         },
-        
-        error: function (data) {
+        error (data) {
             alert("Error while fetching data.");
-        }
+        },
     });
+    alert("Your cart is now empty.")
 }
 
 function checkOut() {
-    let email =$.trim($('#email').val());
-    data = {
-        "email": email,
-      }
-    //TODO complete implementation using the product id
-    var product;
-    
-    //jQuery Ajax request
+    let email =$.trim($('#checkout').val());
     $.ajax({
-        url: Url + 'Cart', 
-        type: 'PUT',
-        dataType: 'json', 
-        data: JSON.stringify(data), //the json is defined here using javascript's dictionary syntax.
-        contentType: 'text/plain',
-        success: function (data) {
-        
-           alert("Check out is done.");
-        },
-        error: function (data) {
-            alert("Error in checking out.");
-        }
-    });
+        url: Url + 'Cart',
+        type: 'put',
+        dataType: 'json',
+        data: JSON.stringify({"email":email}),
+        contentType: 'text/plain'
+    })
+
+    //TODO complete implementation
+    //alert("cart.js/checkOut() is not implemented")
+
 }
