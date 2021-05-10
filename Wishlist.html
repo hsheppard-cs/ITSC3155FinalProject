@@ -62,7 +62,23 @@
     </div>
 </div>
 
+<form action = "mailto:hsheppa1@uncc.edu"
+method = "POST"
+enctype = "multipart/form-data"
+name = "EmailTestForm">
+Name:<br>
+<input type = "text" size="24" name="VisitorName"><br><br>
+Message:<br> <textarea name = "VisitorComment" rows="4" cols="20">
+</textarea>
+<br>
+<br> <input type = "submit" value = "Submit" onclick="newSubmission()">
+</form>
 
+<script>
+    function newSubmission() {
+        alert("Thank you for your feedback! We at Amazon Cell Phone Store truly appreciate it! Enjoy your shopping experience");
+    }
+    </script>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
